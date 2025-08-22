@@ -111,11 +111,11 @@ __Step 5__: Create Organizational Units (OUs) and Admin/Standard Users
 
 1. On **DC‑1**, open **Tools → Active Directory Users and Computers (ADUC)**.
 2. Create some **Organizational Units** (OUs), e.g., `_EMPLOYEES` and `_ADMINS` (use a prefix like `_` to make lab OUs easy to find).
+<img width="750" height="524" alt="333889334-84311ab0-bc5c-4f03-97b9-6d8b84cc2594" src="https://github.com/user-attachments/assets/95659680-a907-4bce-8495-a4a099f7da2a" />
+
 3. Create your **admin account** in the `_ADMINS` OU. *Consider*:
    * Unchecking **User must change password at next logon** (for lab simplicity).
    * Checking **Password never expires** (lab only).
-<img width="750" height="524" alt="333889334-84311ab0-bc5c-4f03-97b9-6d8b84cc2594" src="https://github.com/user-attachments/assets/95659680-a907-4bce-8495-a4a099f7da2a" />
-
 4. Make the new admin a **member of** `Domain Admins` (ADUC → user **Properties** → **Member Of** → **Add** → type `Domain Admins`).
 5. Sign out and **sign in** as `MYDOMAIN\your_admin` (or `your_admin@mydomain.com`).
 
@@ -146,12 +146,14 @@ __Step 7__: Enable RDP for Non‑Admins on Client‑1
 
 *Allow all **Domain Users** to log in via **Remote Desktop**.*
 
+<img width="483" height="666" alt="333894143-9bc26a02-a162-4580-89fd-e8a1251dc9a7" src="https://github.com/user-attachments/assets/dd2bdb20-c3d4-4ec3-8b91-971b03cc3cc1" />
+
 1. On **Client‑1**: **System → Remote Desktop → Select users… → Add…**
-2. Type **Domain Users**, click **Check Names**, then **OK**.
+2. Type `Domain Users`, click **Check Names**, then **OK**.
+<img width="455" height="249" alt="68747470733a2f2f692e696d6775722e636f6d2f613875594738582e706e67" src="https://github.com/user-attachments/assets/421c763b-72ab-44f5-832d-9577c1c4561e" />
+  
 3. All members of **Domain Users** can now RDP to Client‑1.
 4. On **DC‑1**, open **ADUC → Users → Domain Users → Members** to see group membership.
-
-<img width="483" height="666" alt="333894143-9bc26a02-a162-4580-89fd-e8a1251dc9a7" src="https://github.com/user-attachments/assets/dd2bdb20-c3d4-4ec3-8b91-971b03cc3cc1" />
 
 ---
 
