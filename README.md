@@ -3,7 +3,8 @@
 </p>
 
 <h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This guide walks you through deploying an **on‑premises‑style Active Directory** environment using **Azure Virtual Machines**. It’s perfect for hands‑on learning, labs, and POCs.<br />
+
+This guide walks you through deploying an ***on‑premises‑style* Active Directory** environment using **Azure Virtual Machines**.<br />
 
 
 <h2>Environments and Technologies Used</h2>
@@ -79,7 +80,7 @@ __Step 3__: Verify Client ↔ DC Connectivity
 5. Sort by **Protocol**, find **ICMPv4** rules, and **Enable** the echo request rules.
 6. Return to **Client‑1** and verify **Replies** are now received.
 
-<img width="778" height="540" alt="428757709-0d87934c-ecbf-4062-8e22-dd29b5c00add" src="https://github.com/user-attachments/assets/8ff79311-a599-42f6-acd0-a581e1067e2a" />
+<img width="759" height="555" alt="428757709-0d87934c-ecbf-4062-8e22-dd29b5c00add" src="https://github.com/user-attachments/assets/8ff79311-a599-42f6-acd0-a581e1067e2a" />
 
 ---
 
@@ -89,9 +90,11 @@ __Step 4__: Install AD DS & Promote DC‑1
 
 1. On **DC‑1**, open **Server Manager** → **Add Roles and Features**.
 2. In **Server Roles**, select **Active Directory Domain Services**; proceed to **Install**.
-<img width="785" height="555" alt="333888925-e1bbdf7a-e940-424a-8b01-9bdd07d10175" src="https://github.com/user-attachments/assets/dc77b33a-fb5f-46dc-b471-d88977aba8ac" />
+<img width="759" height="555" alt="333888925-e1bbdf7a-e940-424a-8b01-9bdd07d10175" src="https://github.com/user-attachments/assets/dc77b33a-fb5f-46dc-b471-d88977aba8ac" />
 
 3. After installation, click the **yellow flag** in Server Manager → **Promote this server to a domain controller**.
+<img width="759" height="555" alt="68747470733a2f2f692e696d6775722e636f6d2f59343558427a4c2e706e67" src="https://github.com/user-attachments/assets/022d78e1-2405-4c2c-a8d3-f8a56e35eda4" />
+
 4. Choose **Add a new forest** and specify a domain name (e.g., `mydomain.com`).
 5. Set a **DSRM password** (note it down for lab purposes).
 6. Complete the **Prerequisites Check** and **Install**.
@@ -111,7 +114,7 @@ __Step 5__: Create Organizational Units (OUs) and Admin/Standard Users
 3. Create your **admin account** in the `_ADMINS` OU. *Consider*:
    * Unchecking **User must change password at next logon** (for lab simplicity).
    * Checking **Password never expires** (lab only).
-<img width="750" height="524" alt="333889334-84311ab0-bc5c-4f03-97b9-6d8b84cc2594" src="https://github.com/user-attachments/assets/b833b854-c11c-48bb-91fb-277fb8f41a11" />
+<img width="750" height="524" alt="333889334-84311ab0-bc5c-4f03-97b9-6d8b84cc2594" src="https://github.com/user-attachments/assets/95659680-a907-4bce-8495-a4a099f7da2a" />
 
 4. Make the new admin a **member of** `Domain Admins` (ADUC → user **Properties** → **Member Of** → **Add** → type `Domain Admins`).
 5. Sign out and **sign in** as `MYDOMAIN\your_admin` (or `your_admin@mydomain.com`).
@@ -188,7 +191,7 @@ Congratulations! Hopefully, the installation has been completed without any erro
 
 ## Cleanup
 
-* Delete the **Resource Group(s)** and **VMs** in Azure once done to avoid charges.
+* Delete the **Resource Group(s)** and **VM(s)** in Azure once done to avoid charges.
 
 <h2>Closing Thoughts</h2>
 
