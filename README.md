@@ -40,7 +40,7 @@ __Step 1__: Deploy Azure Resources
 2. **Create Client‑1** (Windows 10)
 3. Ensure **both VMs** are in the **same VNet/subnet**
   
-<img width="1040" height="313" alt="306774816-22515919-222e-45b6-b24f-522ae52245e9" src="https://github.com/user-attachments/assets/db26658b-fce6-4e5a-9f18-4eab7e861db9" />
+<img width="1040" height="313" alt="vms" src="https://github.com/user-attachments/assets/f514570e-ff72-474f-b07c-67520bb8eed9" />
 
 **Notes & Tips:**
 
@@ -67,8 +67,12 @@ __Step 3__: Verify Client ↔ DC Connectivity
 
 *Confirm Client‑1 can reach DC‑1.*
 
+<img width="407" height="494" alt="428757709-0d87934c-ecbf-4062-8e22-dd29b5c00add" src="https://github.com/user-attachments/assets/2e860c01-b9cc-45f0-aa53-7ee040c0e0be" />
+
 1. **Remote Desktop Protocol (RDP)** into **Client‑1** with the credentials created at deployment.
 2. From the **Azure portal**, copy **DC‑1’s private IP** (Networking tab).
+<img width="1457" height="718" alt="Priv IP" src="https://github.com/user-attachments/assets/b8b7be63-6c01-415d-9f87-c6f6b39d9ed1" />
+
 3. On Client‑1, open **Command Prompt** and start a continuous ping:
 
    ```cmd
@@ -76,8 +80,11 @@ __Step 3__: Verify Client ↔ DC Connectivity
    ```
 
    It may time out initially due to DC‑1 firewall.
-4. **RDP** into **DC‑1** and open **Windows Defender Firewall** → **Inbound Rules**.
+4. **RDP** into **DC‑1** and open **Windows Defender Firewall with Advanced Security** → **Inbound Rules**.
 5. Sort by **Protocol**, find **ICMPv4** rules, and **Enable** the echo request rules.
+<img width="916" height="342" alt="428757709-0d87934c-ecbf-4062-8e22-dd29b5c00add" src="https://github.com/user-attachments/assets/c4044075-8d6b-47b5-a48e-46091f698aa9" />
+
+
 6. Return to **Client‑1** and verify **Replies** are now received.
 
 <img width="759" height="555" alt="428757709-0d87934c-ecbf-4062-8e22-dd29b5c00add" src="https://github.com/user-attachments/assets/8ff79311-a599-42f6-acd0-a581e1067e2a" />
@@ -167,12 +174,16 @@ __Step 8__: *Optional*: Bulk‑Create Users via PowerShell
 3. **Copy the raw code** and paste into a new ISE script file.
 4. (Recommended) **Reduce** the number of accounts (e.g., from 10k to **1k**) for a faster lab run.
 5. **Run** the script (**F5**) and watch accounts being created in `_EMPLOYEES`.
+<img width="795" height="900" alt="333894143-9bc26a02-a162-4580-89fd-e8a1251dc9a7" src="https://github.com/user-attachments/assets/6398bf3b-3383-42a5-ae14-30c3f560d5fe" />
+
 6. In **ADUC**, pick a random user → **Properties → Account** to view the **logon name**.
 7. **Sign out** of Client‑1 and **RDP** back in using the chosen user and the script’s default password (usually `Password1`).
 8. If an account becomes **locked**, on DC‑1 you can **Unlock**, **Reset password**, or **Disable** via **ADUC**.
 
-<img width="795" height="900" alt="333894143-9bc26a02-a162-4580-89fd-e8a1251dc9a7" src="https://github.com/user-attachments/assets/6398bf3b-3383-42a5-ae14-30c3f560d5fe" />
-
+<img width="405" height="490" alt="xul" src="https://github.com/user-attachments/assets/a5fb89a0-0cdd-4b9a-8923-774a14f0e6b1" />
+<img width="928" height="709" alt="xul start" src="https://github.com/user-attachments/assets/1a70a659-00da-4e98-919f-4d03c6bf9918" />
+<br />
+<br />
 
 **Credit:** Script by **Josh Madakor**.
 
